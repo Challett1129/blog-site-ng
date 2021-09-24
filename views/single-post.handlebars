@@ -1,0 +1,13 @@
+{{> post-info post}}
+
+<form class="comment-form">
+  <div class="container">
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div class="btn">
+    <button class="add-comment-btn"type="submit">add comment</button>
+  </div>
+</form>
+
+{{> comment-section post.comments}}

@@ -1,0 +1,17 @@
+<article>
+    {{#each posts as |post|}}
+            <div class="row post">
+                <div class="col-12 post-header">
+                    <div>
+                        <a class="naked-link title"href="/post/{{id}}">{{post.title}}</a>
+                    </div>
+                    <div class="username">
+                        Posted by {{user.username}} on {{format_date createdAt}}
+                    </div>
+                </div>
+                <div class="col-12 body">
+                    {{post.text_body}}
+                </div>
+            </div>          
+    {{/each}}
+</article>

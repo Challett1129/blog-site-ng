@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Crimson Text', serif;
+}
+
+body {
+    background-color:#4E5E64;
+}
+
+
+textarea {
+    display: flex;
+    resize: none;
+    overflow: hidden;
+    outline: none;
+    width: 100%;
+    background-color: 	#9FA1A3;
+    color: #000000;
+    padding: 5px;
+}
+
+.naked-link{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.naked-list {
+    list-style-type: none;
+}
+
+.post {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 3px solid #212529;
+    margin-bottom: 2%;
+    font-size: 1rem;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    color: #DFDFE0;
+    background-color: #212529;
+    padding: 1%;
+    font-size: 2rem;    
+}
+
+.title {
+    color: #DFDFE0
+}
+
+.username {
+    font-size: 1rem;
+    padding-top:15px;
+}
+
+.body {
+    display: flex; 
+    background-color: #BFC0C1;
+    color: 	#000000;
+    padding: 1%;
+}
+
+a:hover {
+    color:#404447;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    background-color: #212529;
+    margin-top: 1%;
+    padding: 1%;
+    color: #BFC0C1;
+}
+
+.add-comment-btn {
+    border: none;
+    background-color: #212529;
+    color: #BFC0C1;
+    margin: 1%;
+    width: 20%;
+    height: 2rem;
+    border: #BFC0C1 1px solid;
+}
+
+.add-comment-btn:hover {
+    background-color:#404447 ;
+}
+
+.btn {
+    display: flex;
+    justify-content: flex-end;
+}
