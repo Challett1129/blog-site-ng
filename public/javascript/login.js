@@ -1,3 +1,15 @@
+//function to call login route 
+async function loginRoute (){
+  return fetch('api/users/login', {
+    method: 'post',
+    body: JSON.stringify({
+        email, 
+        password
+    }),
+    headers: { 'Content-Type': 'application/json' }
+})
+}
+
 //handles login attempts
 async function loginFormHandler(e) {
     //prevent page from reloading
@@ -7,14 +19,7 @@ async function loginFormHandler(e) {
     const password = document.querySelector('#password-login').value.trim();
 
     if (email && password) {
-        const response = await fetch('api/users/login', {
-            method: 'post',
-            body: JSON.stringify({
-                email, 
-                password
-            }),
-            headers: { 'Content-Type': 'application/json' }
-        })
+        const response = await loginRoute
         
         if (response.ok) {
             document.location.replace('/');
@@ -44,12 +49,19 @@ async function signupFormHandler(e) {
   
       // check the response status
       if (response.ok) {
-        console.log('success');
+        await loginRoute
+
+        if (response.ok) {
+          document.location.replace('/');
+        } else {
+          alert(response.statusText);
+        }
+      }
       } else {
         alert(response.statusText);
       }
-    }
-  }
+}
+
 
 
 //connects login button to logic 
