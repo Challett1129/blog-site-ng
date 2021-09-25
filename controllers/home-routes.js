@@ -4,6 +4,7 @@ const { Post, Comment, User } = require('../models');
 
 //homepage route 
 router.get('/', (req, res) => {
+    console.log(req.session);
     Post.findAll({
         include: [
             {
@@ -26,7 +27,8 @@ router.get('/', (req, res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         //send data to template
         res.render('homepage', {
-            posts
+            posts,
+            loggedIn: req.session.loggedIn
         });
     })
     .catch(err => {
@@ -68,7 +70,8 @@ router.get('/post/:id', (req, res) => {
         
         //send data to render through template
         res.render('single-post', {
-            post
+            post,
+            loggedIn: req.session.loggedIn
         });
     })
     .catch(err => {
@@ -77,6 +80,27 @@ router.get('/post/:id', (req, res) => {
     })
 });
 
+router.get('/login', (req, res) => {
+    //if user is already logged in they cannot press the login button again
+    if(req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('login');
+}) 
+
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    }
+    else {
+      res.status(404).end();
+    }
+  
+});
 
 
 module.exports = router;

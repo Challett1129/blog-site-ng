@@ -1,0 +1,25 @@
+<section>
+    <h2 class="header text-center">Create a new post</h2>
+
+    <form class="new-post-form">
+        <div>
+            <label for="post-title"></label>
+            <input class="col-12" type="text" name="post-title"/>
+        </div>
+        <div>
+            <textarea id="text-body" cols="15" rows="5"></textarea>
+        </div>
+        <button class="col-12 mb-2" type="submit">Create</button>
+    </form>
+</section>
+
+
+<section>
+    <h2 class="header mb-5 mt-5">Your Posts</h2>
+    {{#each posts as |post|}}
+    <a class="naked-link justify-content-end" href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+    {{> post-info post}}
+    {{/each}}
+</section>
+
+<script src="/javascript/add-post.js"></script>
